@@ -2,6 +2,7 @@ font:
   size: 7
   family: "Meslo LG M DZ"
   style: Regular
+  family: "Font Awesome 5 Free"
 
 colors: 
   primary:
@@ -41,27 +42,27 @@ key_bindings:
 # BEGIN ACE
 colors:
   primary:
-    background: '#282329'
-    foreground: '#f6dad4'
+    background: '#343434'
+    foreground: '#f0f0f0'
   cursor:
-    text:       '#282329'
-    cursor:     '#f6dad4'
+    text:       '#343434'
+    cursor:     '#f0f0f0'
   normal:
-    black:      '#282329'
-    red:        '#929EA2'
-    green:      '#91A7AD'
-    yellow:     '#CA8080'
-    blue:       '#EE938F'
-    magenta:    '#E89592'
-    cyan:       '#FDAFA9'
-    white:      '#f6dad4'
+    black:      '#343434'
+    red:        '#C4C4C4'
+    green:      '#CCCCCC'
+    yellow:     '#D4D4D4'
+    blue:       '#DCDCDC'
+    magenta:    '#E4E4E4'
+    cyan:       '#EBEBEB'
+    white:      '#f0f0f0'
   bright:
-    black:      '#ac9894'
-    red:        '#929EA2'
-    green:      '#91A7AD'
-    yellow:     '#CA8080'
-    blue:       '#EE938F'
-    magenta:    '#E89592'
-    cyan:       '#FDAFA9'
-    white:      '#f6dad4'
+    black:      '#a8a8a8'
+    red:        '#C4C4C4'
+    green:      '#CCCCCC'
+    yellow:     '#D4D4D4'
+    blue:       '#DCDCDC'
+    magenta:    '#E4E4E4'
+    cyan:       '#EBEBEB'
+    white:      '#f0f0f0'
 # END ACE
