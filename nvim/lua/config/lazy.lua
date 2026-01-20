@@ -38,7 +38,7 @@ require("lazy").setup({
 	},
 
 	install = {
-		colorscheme = { "catppuccin", "habamax" }, -- Fallback colorschemes during install
+		colorscheme = { "kanagawa", "habamax" }, -- Fallback colorschemes during install
 	},
 
 	change_detection = {

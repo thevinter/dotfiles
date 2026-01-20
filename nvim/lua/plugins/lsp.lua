@@ -36,6 +36,7 @@ return {
 					map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 					map("n", "gr", vim.lsp.buf.references, "Show references")
 					map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+					map("n", ";", vim.lsp.buf.implementation, "Go to implementation")
 					map("n", "gy", vim.lsp.buf.type_definition, "Go to type definition")
 
 					-- Information

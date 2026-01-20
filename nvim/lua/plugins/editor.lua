@@ -1,11 +1,23 @@
 return {
 	-- ==========================================================================
+	-- guess-indent - Auto-detect indentation
+	-- ==========================================================================
+	-- Automatically detects and sets tabwidth/spaces based on file content
+	{
+		"NMAC427/guess-indent.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("guess-indent").setup({})
+		end,
+	},
+
+	-- ==========================================================================
 	-- Neo-tree - File Explorer
 	-- ==========================================================================
 	-- Toggle with Ctrl+E
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		branch = "default-preview-feature",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -21,6 +33,7 @@ return {
 			require("neo-tree").setup({
 				close_if_last_window = true,
 				popup_border_style = "",
+				default_preview = false,
 				filesystem = {
 					follow_current_file = { enabled = true },
 					use_libuv_file_watcher = true,
@@ -38,6 +51,7 @@ return {
 					width = 35,
 					mappings = {
 						["<space>"] = "none", -- Don't conflict with leader
+						["P"] = { "toggle_preview", config = { use_float = true } },
 					},
 				},
 				default_component_configs = {
@@ -170,6 +184,46 @@ return {
 					char = {
 						enabled = false,
 					},
+				},
+			})
+		end,
+	},
+
+	-- ==========================================================================
+	-- nvim-ufo - Modern Folding
+	-- ==========================================================================
+	-- Automatically fold imports and provide better folding UI
+	{
+		"kevinhwang91/nvim-ufo",
+		event = { "BufEnter" },
+		dependencies = "kevinhwang91/promise-async",
+		keys = {
+			{
+				"zR",
+				function()
+					require("ufo").openAllFolds()
+				end,
+				desc = "Open all folds",
+			},
+			{
+				"zM",
+				function()
+					require("ufo").closeAllFolds()
+				end,
+				desc = "Close all folds",
+			},
+		},
+		config = function()
+			require("ufo").setup({
+				-- Use treesitter as the main provider, fallback to indent
+				provider_selector = function()
+					return { "treesitter", "indent" }
+				end,
+
+				-- Automatically close imports when opening files
+				close_fold_kinds_for_ft = {
+					default = { "imports", "import_statement" },
+					typescript = { "import_statement" },
 				},
 			})
 		end,

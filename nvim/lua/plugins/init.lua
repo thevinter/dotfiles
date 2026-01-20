@@ -3,22 +3,43 @@ return {
 	-- ==========================================================================
 	-- Colorscheme
 	-- ==========================================================================
+	-- Catppuccin (commented out)
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			flavour = "frappe", -- Options: latte, frappe, macchiato, mocha
+	-- 			transparent_background = false,
+	-- 			integrations = {
+	-- 				treesitter = true,
+	-- 				native_lsp = { enabled = true },
+	-- 				telescope = true,
+	-- 				which_key = true,
+	-- 			},
+	-- 		})
+	-- 		vim.cmd.colorscheme("catppuccin")
+	-- 	end,
+	-- },
+
+	-- Kanagawa
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		config = function()
-			require("catppuccin").setup({
-				flavour = "frappe", -- Options: latte, frappe, macchiato, mocha
-				transparent_background = false,
-				integrations = {
-					treesitter = true,
-					native_lsp = { enabled = true },
-					telescope = true,
-					which_key = true,
-				},
+			require("kanagawa").setup({
+				compile = false,
+				undercurl = true,
+				commentStyle = { italic = true },
+				functionStyle = {},
+				keywordStyle = { italic = true },
+				statementStyle = { bold = true },
+				typeStyle = {},
+				transparent = false,
+				theme = "dragon", -- wave, dragon, lotus
 			})
-			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("kanagawa")
 		end,
 	},
 
@@ -70,7 +91,7 @@ return {
 	-- ==========================================================================
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -82,9 +103,9 @@ return {
 		cmd = "Telescope",
 		keys = {
 			-- File finding
-			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
-			{ "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep in files" },
-			{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
+			{ "ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+			{ "fg", "<cmd>Telescope live_grep<CR>", desc = "Grep in files" },
+			{ "fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Help tags" },
 			{ "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
 			-- Git
@@ -179,7 +200,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "catppuccin",
+					theme = "auto",
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
 					disabled_filetypes = {

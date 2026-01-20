@@ -57,3 +57,9 @@ opt.completeopt = "menuone,noselect"
 -- Show invisible characters
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Folding (for nvim-ufo)
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
